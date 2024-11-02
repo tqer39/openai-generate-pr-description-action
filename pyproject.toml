@@ -8,6 +8,10 @@ dependencies = [
   "openai==1.52.2",
 ]
 
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [tool.uv]
 dev-dependencies = [
     "openai==1.52.2",
