@@ -28,8 +28,6 @@ runs:
       uses: astral-sh/setup-uv@v3
       with:
         version: "0.4.26"
-        enable-cache: true
-        cache-dependency-glob: "requirements**.txt"
 
     - name: Install dependencies with uv
       run: uv pip install -r requirements.txt --system
