@@ -20,6 +20,11 @@ inputs:
     description: 'Model'
     required: true
     default: 'gpt-3.5-turbo'
+  # https://platform.openai.com/docs/api-reference/audio/createTranscription
+  temperature:
+    description: 'temperature'
+    required: true
+    default: '0.1'
 
 runs:
   using: 'composite'
@@ -47,6 +52,7 @@ runs:
       env:
         OPENAI_API_KEY: ${{ inputs.openai-api-key }}
         MODEL: ${{ inputs.model }}
+        TEMPERATURE: ${{ inputs.temperature }}
       run: |
         uv run ${{ github.action_path }}/scripts/generate_pr_description.py > pr_output.txt
         cat pr_output.txt
