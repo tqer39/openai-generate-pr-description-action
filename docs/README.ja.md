@@ -1,4 +1,4 @@
-# Generate Pull Request
+# Generate Pull Request Title and Description
 
 このワークフローでは OpenAI による文章生成モデルを使って、プルリクエストのタイトルと本文を生成します。
 
