@@ -1,0 +1,19 @@
+# see http://editorconfig.org
+
+# EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = true
+
+[*.sh]
+indent_size = 4
+
+[*.py]
+indent_size = 4
