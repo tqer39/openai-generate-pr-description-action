@@ -30,7 +30,9 @@ runs:
         version: "0.4.26"
 
     - name: uv sync
-      run: uv sync
+      run: |
+        cd ${{ github.workspace }}
+        uv sync
       shell: bash
 
     - name: Generate PR Title and Description
