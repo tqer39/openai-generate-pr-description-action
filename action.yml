@@ -25,6 +25,10 @@ inputs:
     description: 'temperature'
     required: true
     default: '0.1'
+  commit-log-history-limit:
+    description: 'Commit log history limit'
+    required: true
+    default: '70'
 
 runs:
   using: 'composite'
@@ -53,6 +57,7 @@ runs:
         OPENAI_API_KEY: ${{ inputs.openai-api-key }}
         MODEL: ${{ inputs.model }}
         TEMPERATURE: ${{ inputs.temperature }}
+        COMMIT_LOG_HISTORY_LIMIT: ${{ inputs.commit-log-history-limit }}
       run: |
         uv run ${{ github.action_path }}/scripts/generate_pr_description.py > pr_output.txt
         cat pr_output.txt

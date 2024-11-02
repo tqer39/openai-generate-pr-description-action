@@ -103,7 +103,7 @@ def get_commit_logs_and_diffs() -> str:
     subprocess.run(["git", "fetch", "origin"], check=True)
 
     result = subprocess.run(
-        ["git", "log", "--pretty=format:%H %s", "origin/main..HEAD", "-n", "70"],
+        ["git", "log", "--pretty=format:%H %s", "origin/main..HEAD", "-n", str(os.getenv("COMMIT_LOG_HISTORY_LIMIT"))],
         capture_output=True,
         text=True,
     )  # コミットログの数を制限
