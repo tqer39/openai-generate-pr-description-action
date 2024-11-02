@@ -20,7 +20,7 @@ client = OpenAI(
 
 
 # プロンプトの準備
-def create_prompt(commit_logs):
+def create_prompt(commit_logs: str) -> str:
     return f"""
     ## 指示内容
 
@@ -70,7 +70,7 @@ def create_prompt(commit_logs):
 
 
 # OpenAI API でのリクエスト
-def generate_pr_description(commit_logs):
+def generate_pr_description(commit_logs: str) -> str:
     prompt = create_prompt(commit_logs)
 
     response = client.chat.completions.create(
@@ -83,11 +83,11 @@ def generate_pr_description(commit_logs):
         temperature=0.1,
     )
 
-    return response.choices[0].message.content.strip()
+    return str(response.choices[0].message.content).strip()
 
 
 # Git コミットログとファイルの差分の取得
-def get_commit_logs_and_diffs():
+def get_commit_logs_and_diffs() -> str:
     # リモートの変更を取得
     subprocess.run(["git", "fetch", "origin"], check=True)
 
