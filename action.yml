@@ -1,11 +1,11 @@
 name: 'Hoge Action'
 description: 'hoge を出力するアクション'
 author: 'あなたの名前'
+branding:
+  color: 'blue'
+  icon: 'terminal'
 runs:
   using: 'composite'
   steps:
     - run: echo "hoge"
       shell: bash
-branding:
-  color: 'blue'
-  icon: 'terminal'
