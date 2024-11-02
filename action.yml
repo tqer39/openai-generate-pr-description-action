@@ -40,7 +40,7 @@ runs:
       env:
         OPENAI_API_KEY: ${{ inputs.openai-api-key }}
       run: |
-        uv run python ${{ github.action_path }}/scripts/generate_pr_description.py > pr_output.txt
+        uv run ${{ github.action_path }}/scripts/generate_pr_description.py > pr_output.txt
         cat pr_output.txt
       shell: bash
 
