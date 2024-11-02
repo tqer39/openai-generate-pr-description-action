@@ -6,7 +6,11 @@ branding:
   color: 'blue'
   icon: 'terminal'
 inputs:
-  api-key:
+  github-token:
+    description: 'GitHub token'
+    required: true
+    default: ""
+  openai-api-key:
     description: 'OpenAI API key'
     required: true
     default: ""
@@ -33,7 +37,7 @@ runs:
 
     - name: Generate PR Title and Description
       env:
-        OPENAI_API_KEY: ${{ inputs.api-key }}
+        OPENAI_API_KEY: ${{ inputs.openai-api-key }}
       run: |
         python scripts/generate_pr_description.py > pr_output.txt
         cat pr_output.txt
@@ -41,7 +45,7 @@ runs:
 
     - name: Update PR Title and Description
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
       run: |
         PR_NUMBER=${{ github.event.pull_request.number }}
         PR_TITLE=$(head -n 1 pr_output.txt)
