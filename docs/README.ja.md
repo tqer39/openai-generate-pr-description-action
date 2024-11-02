@@ -13,10 +13,6 @@ on:
       - opened
       - synchronize
 
-permissions:
-  pull-requests: write
-  contents: read
-
 jobs:
   pull-request:
     runs-on: ubuntu-latest
