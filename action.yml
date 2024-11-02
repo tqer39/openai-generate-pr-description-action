@@ -1,7 +1,7 @@
 ---
 name: 'Generate Pull Request Title and Description'
 description: 'Generate Pull Request Title and Description'
-author: 'Takeru O'oyama @tqer39'
+author: Takeru O'oyama @tqer39
 branding:
   color: 'blue'
   icon: 'terminal'
