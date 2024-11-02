@@ -31,8 +31,8 @@ runs:
 
     - name: Setup uv
       run: |
-        uv venv ${{ github.action_path }}/.venv
-        source ${{ github.action_path }}/.venv/bin/activate
+        uv venv
+        source .venv/bin/activate
         uv sync --no-dev --directory ${{ github.action_path }}
       shell: bash
 
