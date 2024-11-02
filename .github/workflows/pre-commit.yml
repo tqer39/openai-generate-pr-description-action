@@ -1,0 +1,35 @@
+---
+name: pre-commit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  pre-commit:
+    name: pre-commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Read Python version from .python-version
+        id: read_python_version
+        run: |
+          PYTHON_VERSION=$(cat .python-version)
+          echo "PYTHON_VERSION=$PYTHON_VERSION" >> $GITHUB_ENV
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: pre-commit
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: -a --show-diff-on-failure

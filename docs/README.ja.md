@@ -1,10 +1,8 @@
-./docs/README.ja.md を英語で書き直す
-
 # Generate Pull Request Title and Description
 
-This workflow uses an article generation model by OpenAI to generate the title and body of a pull request.
+このワークフローでは OpenAI による文章生成モデルを使って、プルリクエストのタイトルと本文を生成します。
 
-## Usage
+## 使い方
 
 ```yaml
 name: OpenAI PR Description Generator
@@ -35,8 +33,8 @@ jobs:
 
 ### `github-token`
 
-**Required** GitHub token. Specify `${{ secrets.GITHUB_TOKEN }}`.
+**必須** GitHub トークン。`${{ secrets.GITHUB_TOKEN }}` を指定します。
 
 ### `open-api-key`
 
-**Required** OpenAI API key. Specify `${{ secrets.OPENAI_API_KEY }}`.
+**必須** OpenAI API キー。`${{ secrets.OPENAI_API_KEY }}` を指定します。

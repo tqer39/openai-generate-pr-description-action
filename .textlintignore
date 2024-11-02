@@ -1,0 +1,10 @@
+.editorconfig
+.git/
+.github/
+.gitignore
+.pre-commit-config.yaml
+.textlintcache
+.yamllint.yml
+cspell.json
+renovate.json
+tmp/

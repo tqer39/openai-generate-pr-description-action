@@ -1,11 +1,54 @@
-name: 'Hoge Action'
-description: 'hoge を出力するアクション'
-author: 'あなたの名前'
-runs:
-  using: 'composite'
-  steps:
-    - run: echo "hoge"
-      shell: bash
+---
+name: 'Generate Pull Request Title and Description'
+description: 'Generate Pull Request Title and Description'
+author: Takeru O'oyama @tqer39
 branding:
   color: 'blue'
   icon: 'terminal'
+inputs:
+  github-token:
+    description: 'GitHub token'
+    required: true
+    default: ""
+  openai-api-key:
+    description: 'OpenAI API key'
+    required: true
+    default: ""
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@v5
+
+    - name: pip upgrade
+      run: python -m pip install --upgrade pip
+      shell: bash
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v3
+      with:
+        version: "0.4.26"
+        enable-cache: true
+        cache-dependency-glob: "requirements**.txt"
+
+    - name: Install dependencies with uv
+      run: uv pip install -r requirements.txt --system
+      shell: bash
+
+    - name: Generate PR Title and Description
+      env:
+        OPENAI_API_KEY: ${{ inputs.openai-api-key }}
+      run: |
+        python scripts/generate_pr_description.py > pr_output.txt
+        cat pr_output.txt
+      shell: bash
+
+    - name: Update PR Title and Description
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+      run: |
+        PR_NUMBER=${{ github.event.pull_request.number }}
+        PR_TITLE=$(head -n 1 pr_output.txt)
+        PR_BODY=$(tail -n +2 pr_output.txt)
+        gh pr edit $PR_NUMBER --title "$PR_TITLE" --body "$PR_BODY"
+      shell: bash

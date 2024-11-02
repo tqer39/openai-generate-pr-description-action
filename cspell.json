@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "files": [
+    "**",
+    ".*/**"
+  ],
+  "ignorePaths": [
+    ".git",
+    ".gitignore"
+  ],
+  "words": [
+    "hoge",
+    "Hoge",
+    "kentaro",
+    "mypy",
+    "O'oyama",
+    "OPENAI",
+    "pydocstyle",
+    "Takeru",
+    "tqer"
+  ]
+}
