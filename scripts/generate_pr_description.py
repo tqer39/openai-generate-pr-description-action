@@ -74,7 +74,7 @@ def generate_pr_description(commit_logs):
     prompt = create_prompt(commit_logs)
 
     response = client.chat.completions.create(
-        model="gpt-4o",  # GPT-3.5の場合は "gpt-3.5-turbo" に変更
+        model=os.getenv("MODEL"),
         messages=[
             {"role": "system", "content": "あなたは優秀なソフトウェアエンジニアです。"},
             {"role": "user", "content": prompt},

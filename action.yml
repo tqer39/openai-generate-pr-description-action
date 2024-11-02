@@ -14,6 +14,11 @@ inputs:
     description: 'OpenAI API key'
     required: true
     default: ""
+  # see https://platform.openai.com/docs/models#continuous-model-upgrades
+  model:
+    description: 'Model'
+    required: true
+    default: "gpt-3.5-turbo"
 runs:
   using: 'composite'
   steps:
@@ -39,6 +44,7 @@ runs:
     - name: Generate PR Title and Description
       env:
         OPENAI_API_KEY: ${{ inputs.openai-api-key }}
+        MODEL: ${{ inputs.model }}
       run: |
         uv run ${{ github.action_path }}/scripts/generate_pr_description.py > pr_output.txt
         cat pr_output.txt
