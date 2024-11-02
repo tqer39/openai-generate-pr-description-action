@@ -1,3 +1,9 @@
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "openai",
+# ]
+# ///
 from openai import OpenAI
 import os
 import subprocess
