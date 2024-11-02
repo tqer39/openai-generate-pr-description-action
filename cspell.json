@@ -17,6 +17,7 @@
     "OPENAI",
     "pydocstyle",
     "Takeru",
-    "tqer"
+    "tqer",
+    "venv"
   ]
 }
