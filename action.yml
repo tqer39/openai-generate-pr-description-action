@@ -5,6 +5,7 @@ author: Takeru O'oyama @tqer39
 branding:
   color: 'blue'
   icon: 'terminal'
+
 inputs:
   github-token:
     description: 'GitHub token'
@@ -14,6 +15,21 @@ inputs:
     description: 'OpenAI API key'
     required: true
     default: ""
+  # see https://platform.openai.com/docs/models#continuous-model-upgrades
+  model:
+    description: 'Model'
+    required: true
+    default: 'gpt-3.5-turbo'
+  # https://platform.openai.com/docs/api-reference/audio/createTranscription
+  temperature:
+    description: 'temperature'
+    required: true
+    default: '0.1'
+  commit-log-history-limit:
+    description: 'Commit log history limit'
+    required: true
+    default: '70'
+
 runs:
   using: 'composite'
   steps:
@@ -39,6 +55,9 @@ runs:
     - name: Generate PR Title and Description
       env:
         OPENAI_API_KEY: ${{ inputs.openai-api-key }}
+        MODEL: ${{ inputs.model }}
+        TEMPERATURE: ${{ inputs.temperature }}
+        COMMIT_LOG_HISTORY_LIMIT: ${{ inputs.commit-log-history-limit }}
       run: |
         uv run ${{ github.action_path }}/scripts/generate_pr_description.py > pr_output.txt
         cat pr_output.txt
