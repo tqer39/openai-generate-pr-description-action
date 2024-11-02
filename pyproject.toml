@@ -1,0 +1,24 @@
+[project]
+name = "local-workspace-provisioning"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "openai==1.52.2",
+]
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 120
+select = ["E", "F", "W", "C"]
+ignore = ["E501"]  # 長い行を無視する場合
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"] # 未使用インポートを許容
