@@ -28,8 +28,8 @@ def create_prompt(commit_logs: str) -> str:
     -
     - 2行目以降は Markdown 形式で記述してください。
     - ファイル名はバッククオートで囲んでください。
-    - https://github.com/orgs/community/discussions/16925 を参考にしてください。
-        - 内容に応じて NOTE, TIPS, IMPORTANT, WARNING, CAUTION を使用してください。
+    -  を参考にしてください。
+        - 必要に応じて GitHub の Markdown 記法（https://github.com/orgs/community/discussions/16925）を参考に NOTE, TIPS, IMPORTANT, WARNING, CAUTION を使用してください。
 
     例:
     ```
@@ -46,6 +46,8 @@ def create_prompt(commit_logs: str) -> str:
         - コミットログとファイルを読んで、変更点の概要と技術的な詳細や注意点を記述してください。
             - なければ項目ごと出力しないでください。
             - 嘘を書かないでください。
+        - 以下の項目に分けて記述してください。
+
         ## 📒 変更点の概要
 
         1. 各項目の先頭に適切な emoji をつけてください。
