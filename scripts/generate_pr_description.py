@@ -4,6 +4,7 @@
 #     "openai",
 # ]
 # ///
+import decimal
 from openai import OpenAI
 import os
 import subprocess
@@ -91,7 +92,7 @@ def generate_pr_description(commit_logs: str) -> str:
             {"role": "user", "content": prompt},
         ],
         max_tokens=1000,
-        temperature=os.getenv("TEMPERATURE"),
+        temperature=decimal(os.getenv("TEMPERATURE")),
     )
 
     return str(response.choices[0].message.content).strip()
