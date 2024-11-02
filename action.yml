@@ -5,6 +5,7 @@ author: Takeru O'oyama @tqer39
 branding:
   color: 'blue'
   icon: 'terminal'
+
 inputs:
   github-token:
     description: 'GitHub token'
@@ -19,6 +20,7 @@ inputs:
     description: 'Model'
     required: true
     default: "gpt-3.5-turbo"
+
 runs:
   using: 'composite'
   steps:
