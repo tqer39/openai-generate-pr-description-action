@@ -8,6 +8,11 @@ dependencies = [
   "openai==1.52.2",
 ]
 
+[tool.uv]
+dev-dependencies = [
+    "openai==1.52.2",
+]
+
 [tool.mypy]
 strict = true
 ignore_missing_imports = true
