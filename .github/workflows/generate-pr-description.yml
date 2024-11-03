@@ -1,28 +1,47 @@
 ---
-  name: OpenAI Generator PR Title and Description
+name: OpenIA Generate PR Description
 
-  on:
-    pull_request:
-      branches:
-        - main
-      types:
-        - opened
-        - synchronize
+on:
+  pull_request:
+    branches:
+      - main
 
-  jobs:
-    generate-pr-description:
-      runs-on: ubuntu-latest
-      timeout-minutes: 10
-      permissions:
-        pull-requests: write # uses: tqer39/generate-pr-description-action
-      if: contains(github.event.pull_request.user.login, 'renovate') == false
-      steps:
-        - uses: actions/checkout@v4
-          with:
-            fetch-depth: 0
-        - uses: tqer39/generate-pr-description-action@v0.0.20-alpha
-          with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-            openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-            openai-language: "ja"
-            openai-model: "gpt-4o"
+jobs:
+  generate-pr-description:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: contains(github.event.pull_request.user.login, 'renovate') == false
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 全ての履歴を取得するように設定
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "0.4.26"
+
+      - name: Generate PR Title and Description
+        env:
+          COMMIT_LOG_HISTORY_LIMIT: 70
+          LANGUAGE: "ja"
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: "gpt-4o"
+          TEMPERATURE: 0.1
+        run: |
+          python scripts/generate_pr_description.py > pr_output.txt
+          cat pr_output.txt
+
+      - name: Update PR Title and Description
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          PR_TITLE=$(head -n 1 pr_output.txt)
+          PR_BODY=$(tail -n +2 pr_output.txt)
+          gh pr edit $PR_NUMBER --title "$PR_TITLE" --body "$PR_BODY"
