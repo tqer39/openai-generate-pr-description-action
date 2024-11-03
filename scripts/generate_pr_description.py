@@ -24,7 +24,7 @@ def create_prompt(commit_logs: str) -> str:
     return f"""
     ## 指示内容
 
-    - 以下のコミットログとファイルの差分を読んで、理解し易いプルリクエストのタイトルと詳細な説明を日本語で作成してください。
+    - 以下のコミットログとファイルの差分を読んで、理解し易いプルリクエストのタイトルと詳細な説明を作成してください。
     -
     - 2行目以降は Markdown 形式で記述してください。
     - ファイル名はバッククオートで囲んでください。
@@ -79,6 +79,7 @@ def generate_pr_description(commit_logs: str) -> str:
             {"role": "user", "content": prompt},
         ],
         max_tokens=1000,
+        language=os.getenv("OPENAI_LANGUAGE"),
         temperature=float(os.getenv("TEMPERATURE", "0.1")),
     )
 
