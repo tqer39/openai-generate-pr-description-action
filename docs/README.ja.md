@@ -18,7 +18,6 @@ jobs:
     timeout-minutes: 10
     permissions:
       pull-requests: write
-      contents: read
     if: contains(github.event.pull_request.user.login, 'renovate') == false
     steps:
       - uses: actions/checkout@v4
