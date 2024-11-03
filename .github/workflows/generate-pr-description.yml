@@ -34,7 +34,7 @@ jobs:
           OPENAI_MODEL: "gpt-4o"
           TEMPERATURE: 0.1
         run: |
-          python scripts/generate_pr_description.py > pr_output.txt
+          uv run scripts/generate_pr_description.py > pr_output.txt
           cat pr_output.txt
 
       - name: Update PR Title and Description
