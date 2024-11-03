@@ -29,8 +29,8 @@ jobs:
       - name: Generate PR Title and Description
         env:
           COMMIT_LOG_HISTORY_LIMIT: 70
-          LANGUAGE: "ja"
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_LANGUAGE: "ja"
           OPENAI_MODEL: "gpt-4o"
           OPENAI_TEMPERATURE: 0.1
         run: |
