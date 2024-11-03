@@ -11,6 +11,8 @@ name: OpenAI PR Description Generator
 
 on:
   pull_request:
+    branches:
+      - main
     types:
       - opened
       - synchronize
