@@ -16,8 +16,8 @@ inputs:
     required: true
     default: ""
   # see https://platform.openai.com/docs/models#continuous-model-upgrades
-  model:
-    description: 'Model'
+  openai-model:
+    description: 'OpenAI Model'
     required: true
     default: 'gpt-3.5-turbo'
   # https://platform.openai.com/docs/api-reference/audio/createTranscription
@@ -55,7 +55,7 @@ runs:
     - name: Generate PR Title and Description
       env:
         OPENAI_API_KEY: ${{ inputs.openai-api-key }}
-        MODEL: ${{ inputs.model }}
+        OPENAI_MODEL: ${{ inputs.openai-model }}
         TEMPERATURE: ${{ inputs.temperature }}
         COMMIT_LOG_HISTORY_LIMIT: ${{ inputs.commit-log-history-limit }}
       run: |

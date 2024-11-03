@@ -75,13 +75,13 @@ def generate_pr_description(commit_logs: str) -> str:
     prompt = create_prompt(commit_logs)
 
     response = client.chat.completions.create(
-        model=os.getenv("MODEL"),
+        model=os.getenv("OPENAI_MODEL"),
         messages=[
             {"role": "system", "content": "あなたは優秀なソフトウェアエンジニアです。"},
             {"role": "user", "content": prompt},
         ],
         max_tokens=1000,
-        temperature=float(os.getenv("TEMPERATURE", "0.7")),
+        temperature=float(os.getenv("TEMPERATURE", "0.1")),
     )
 
     return str(response.choices[0].message.content).strip()
