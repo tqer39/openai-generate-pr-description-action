@@ -82,7 +82,7 @@ def generate_pr_description(commit_logs: str) -> str:
             {"role": "user", "content": prompt},
         ],
         max_tokens=1000,
-        temperature=decimal(os.getenv("TEMPERATURE")),
+        temperature=decimal.Decimal(os.getenv("TEMPERATURE") or 0.7),
     )
 
     return str(response.choices[0].message.content).strip()
