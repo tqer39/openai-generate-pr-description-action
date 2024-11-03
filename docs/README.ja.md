@@ -24,7 +24,7 @@ jobs:
     if: contains(github.event.pull_request.user.login, 'renovate') == false
     steps:
       - uses: actions/checkout@v4
-      - uses: tqer39/generate-pr-description-action@v0.0.1-alpha
+      - uses: tqer39/generate-pr-description-action@v0.0.21-alpha
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           open-api-key: ${{ secrets.OPENAI_API_KEY }}
