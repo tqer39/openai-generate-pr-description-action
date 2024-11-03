@@ -79,7 +79,7 @@ def generate_pr_description(commit_logs: str) -> str:
             {"role": "user", "content": prompt},
         ],
         max_completion_tokens=1000,
-        temperature=0.1
+        temperature=0.1,
     )
 
     return str(response.choices[0].message.content).strip()
