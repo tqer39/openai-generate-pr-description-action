@@ -14,7 +14,8 @@
       runs-on: ubuntu-latest
       timeout-minutes: 10
       permissions:
-        pull-requests: write # uses: tqer39/generate-pr-description-action      if: contains(github.event.pull_request.user.login, 'renovate') == false
+        pull-requests: write # uses: tqer39/generate-pr-description-action
+      if: contains(github.event.pull_request.user.login, 'renovate') == false
       steps:
         - uses: actions/checkout@v4
           with:
