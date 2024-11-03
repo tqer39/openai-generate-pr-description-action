@@ -19,20 +19,11 @@ inputs:
     description: 'OpenAI API key'
     required: true
     default: ""
-  openai-language:
-    description: 'OpenAI Language'
-    required: true
-    default: 'en'
   # see https://platform.openai.com/docs/models#continuous-model-upgrades
   openai-model:
     description: 'OpenAI Model'
     required: true
     default: 'gpt-3.5-turbo'
-  # https://platform.openai.com/docs/api-reference/audio/createTranscription
-  temperature:
-    description: 'temperature'
-    required: true
-    default: '0.1'
 
 runs:
   using: 'composite'
@@ -59,10 +50,8 @@ runs:
     - name: Generate PR Title and Description
       env:
         COMMIT_LOG_HISTORY_LIMIT: ${{ inputs.commit-log-history-limit }}
-        LANGUAGE: ${{ inputs.language }}
         OPENAI_API_KEY: ${{ inputs.openai-api-key }}
         OPENAI_MODEL: ${{ inputs.openai-model }}
-        TEMPERATURE: ${{ inputs.temperature }}
       run: |
         uv run ${{ github.action_path }}/scripts/generate_pr_description.py > pr_output.txt
         cat pr_output.txt
