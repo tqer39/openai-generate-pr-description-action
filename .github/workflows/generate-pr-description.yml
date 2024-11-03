@@ -1,5 +1,5 @@
 ---
-name: OpenIA Generate PR Description
+name: OpenAI Generate PR Title and Description
 
 on:
   pull_request:
