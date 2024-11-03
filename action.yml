@@ -15,14 +15,14 @@ inputs:
     description: 'GitHub token'
     required: true
     default: ""
-  language:
-    description: 'OpenAI Language'
-    required: true
-    default: 'en'
   openai-api-key:
     description: 'OpenAI API key'
     required: true
     default: ""
+  openai-language:
+    description: 'OpenAI Language'
+    required: true
+    default: 'en'
   # see https://platform.openai.com/docs/models#continuous-model-upgrades
   openai-model:
     description: 'OpenAI Model'
