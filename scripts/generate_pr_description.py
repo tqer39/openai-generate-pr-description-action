@@ -80,7 +80,7 @@ def generate_pr_description(commit_logs: str) -> str:
         ],
         max_tokens=1000,
         language=os.getenv("OPENAI_LANGUAGE"),
-        temperature=float(os.getenv("TEMPERATURE", 0.1)),
+        temperature=float(os.getenv("OPENAI_TEMPERATURE")),
     )
 
     return str(response.choices[0].message.content).strip()

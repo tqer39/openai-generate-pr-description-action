@@ -32,7 +32,7 @@ jobs:
           LANGUAGE: "ja"
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: "gpt-4o"
-          TEMPERATURE: 0.1
+          OPENAI_TEMPERATURE: 0.1
         run: |
           uv run scripts/generate_pr_description.py > pr_output.txt
           cat pr_output.txt
