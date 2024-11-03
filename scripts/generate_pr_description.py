@@ -70,6 +70,7 @@ def create_prompt(commit_logs: str) -> str:
 
 # OpenAI API でのリクエスト
 def generate_pr_description(commit_logs: str) -> str:
+    default_temperature = 0.1  # Define the default temperature
     prompt = create_prompt(commit_logs)
 
     response = client.chat.completions.create(
@@ -80,7 +81,7 @@ def generate_pr_description(commit_logs: str) -> str:
         ],
         max_tokens=1000,
         language=os.getenv("OPENAI_LANGUAGE"),
-        temperature=float(os.getenv("OPENAI_TEMPERATURE")),
+        temperature=float(os.getenv("OPENAI_TEMPERATURE", default_temperature))
     )
 
     return str(response.choices[0].message.content).strip()
