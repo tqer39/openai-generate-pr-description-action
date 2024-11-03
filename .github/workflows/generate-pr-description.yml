@@ -20,7 +20,7 @@
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
-        - uses: tqer39/generate-pr-description-action@v0.0.13-alpha
+        - uses: tqer39/generate-pr-description-action@v0.0.16-alpha
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             openai-api-key: ${{ secrets.OPENAI_API_KEY }}
