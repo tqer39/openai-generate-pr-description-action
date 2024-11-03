@@ -75,7 +75,7 @@ def generate_pr_description(commit_logs: str) -> str:
     prompt = create_prompt(commit_logs)
 
     response = client.chat.completions.create(
-        model=os.getenv("MODEL"),
+        model=os.getenv("OPENAI_MODEL"),
         messages=[
             {"role": "system", "content": "あなたは優秀なソフトウェアエンジニアです。"},
             {"role": "user", "content": prompt},
