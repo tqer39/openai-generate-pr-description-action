@@ -40,6 +40,10 @@ jobs:
 
 **必須** OpenAI API キー。`${{ secrets.OPENAI_API_KEY }}` を指定します。
 
+## 貢献方法
+
+問題や課題が発見されたら Issue を作成するか Pull Request を作成していただけると幸いです。
+
 ## ライセンス
 
 このアクションは MIT ライセンスのもとで公開されています。詳細については [LICENSE](LICENSE) を参照してください。

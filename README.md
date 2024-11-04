@@ -41,6 +41,10 @@ jobs:
 
 **Required** OpenAI API key. Specify `${{ secrets.OPENAI_API_KEY }}`.
 
+## Contribution
+
+If you find any issues or have improvements, please create an Issue or submit a Pull Request.
+
 ## License
 
 This action is released under the MIT license. For more information, see [LICENSE](LICENSE).
