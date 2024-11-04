@@ -11,7 +11,7 @@
 ## Usage
 
 ```yaml
-name: OpenAI PR Description Generator
+name: OpenAI Generate PR Title and Description
 
 on:
   pull_request:
