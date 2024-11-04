@@ -28,7 +28,7 @@ jobs:
     timeout-minutes: 10
     permissions:
       pull-requests: write
-    if: contains(github.event.pull_request.user.login, 'renovate') == false
+    if: contains(fromJSON('["renovate[bot]"]'), github.event.pull_request.user.login) == false
     steps:
       - uses: actions/checkout@v4
       - uses: tqer39/openai-generate-pr-description@v1.0.1
