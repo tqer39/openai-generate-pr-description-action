@@ -13,7 +13,8 @@ jobs:
   generate-pr-description:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    if: contains(github.event.pull_request.user.login, 'renovate') == false
+    # Check if the PR is not created by 'renovate' or 'tqer39-apps'
+    if: contains(fromJSON('["renovate[bot]", "tqer39-apps[bot]"]'), github.event.pull_request.user.login) == false
     permissions:
       pull-requests: write
     steps:
