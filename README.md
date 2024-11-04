@@ -1,6 +1,12 @@
-# Generate Pull Request Title and Description
+<p align="center">
+  <a href="">
+    <img src="./header.jpg" alt="header" width="100%">
+  </a>
+  <h1 align="center">OpenAI Generate PR Title and Description</h1>
+</p>
 
-This workflow uses an article generation model by OpenAI to generate the title and body of a pull request.
+<p align="center">
+  <i>This workflow uses an article generation model by OpenAI to generate the title and body of a pull request.</i>
 
 ## Usage
 
@@ -25,7 +31,7 @@ jobs:
     if: contains(github.event.pull_request.user.login, 'renovate') == false
     steps:
       - uses: actions/checkout@v4
-      - uses: tqer39/generate-pr-description-action@v0.0.21-alpha
+      - uses: tqer39/generate-pr-description-action@v1.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           open-api-key: ${{ secrets.OPENAI_API_KEY }}
