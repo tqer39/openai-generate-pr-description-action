@@ -1,11 +1,18 @@
-# Generate Pull Request Title and Description
+<p align="center">
+  <a href="">
+    <img src="./header.jpg" alt="header" width="100%">
+  </a>
+  <h1 align="center">OpenAI Generate PR Title and Description</h1>
+</p>
 
-このワークフローでは OpenAI による文章生成モデルを使って、プルリクエストのタイトルと本文を生成します。
+<p align="center">
+  <i>このワークフローでは OpenAI による文章生成モデルを使って、プルリクエストのタイトルと本文を生成します。</i>
+</p>
 
 ## 使い方
 
 ```yaml
-name: OpenAI PR Description Generator
+name: OpenAI Generate PR Title and Description
 
 on:
   pull_request:
@@ -24,7 +31,7 @@ jobs:
     if: contains(github.event.pull_request.user.login, 'renovate') == false
     steps:
       - uses: actions/checkout@v4
-      - uses: tqer39/generate-pr-description-action@v0.0.21-alpha
+      - uses: tqer39/generate-pr-description-action@v1.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           open-api-key: ${{ secrets.OPENAI_API_KEY }}
@@ -39,3 +46,11 @@ jobs:
 ### `open-api-key`
 
 **必須** OpenAI API キー。`${{ secrets.OPENAI_API_KEY }}` を指定します。
+
+## 貢献方法
+
+問題や課題が発見されたら Issue を作成するか Pull Request を作成していただけると幸いです。
+
+## ライセンス
+
+このアクションは MIT ライセンスのもとで公開されています。詳細については [LICENSE](LICENSE) を参照してください。
