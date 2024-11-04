@@ -1,6 +1,6 @@
 ---
-name: 'Generate Pull Request Title and Description'
-description: 'Generate Pull Request Title and Description'
+name: 'OpenAI: Generate Pull Request Title and Description'
+description: 'Generate Pull Request Title and Description using OpenAI API'
 author: Takeru O'oyama @tqer39
 branding:
   color: 'green'
