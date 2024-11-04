@@ -39,3 +39,7 @@ jobs:
 ### `open-api-key`
 
 **必須** OpenAI API キー。`${{ secrets.OPENAI_API_KEY }}` を指定します。
+
+## ライセンス
+
+このアクションは MIT ライセンスのもとで公開されています。詳細については [LICENSE](LICENSE) を参照してください。
