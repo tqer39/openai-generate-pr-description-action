@@ -1,6 +1,6 @@
 <p align="center">
   <a href="">
-    <img src="./header.jpg" alt="header" width="100%">
+    <img src="./docs/header.jpg" alt="header" width="100%">
   </a>
   <h1 align="center">OpenAI Generate PR Title and Description</h1>
 </p>
