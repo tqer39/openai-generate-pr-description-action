@@ -9,6 +9,10 @@ on:
       - opened
       - synchronize
 
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   generate-pr-description:
     runs-on: ubuntu-latest

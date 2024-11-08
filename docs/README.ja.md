@@ -31,10 +31,10 @@ jobs:
     if: contains(fromJSON('["renovate[bot]"]'), github.event.pull_request.user.login) == false
     steps:
       - uses: actions/checkout@v4
-      - uses: tqer39/openai-generate-pr-description@v1.0.2
+      - uses: tqer39/openai-generate-pr-description@v1.0.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          open-api-key: ${{ secrets.OPENAI_API_KEY }}
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
 ```
 
 ## Inputs
@@ -43,9 +43,25 @@ jobs:
 
 **必須** GitHub トークン。`${{ secrets.GITHUB_TOKEN }}` を指定します。
 
-### `open-api-key`
+### `openai-api-key`
 
 **必須** OpenAI API キー。`${{ secrets.OPENAI_API_KEY }}` を指定します。
+
+### `openai-model`
+
+**オプション** OpenAI モデル。デフォルトは `gpt-3.5-turbo` です。
+
+> [!NOTE]
+>
+> - 📝 OpenAI API の仕様で、デフォルトのモデルは `gpt-3.5-turbo` で無料で使用できます。その他のモデルを使用する場合は、OpenAI API の料金が発生する可能性があります。
+
+### `commit-log-history-limit`
+
+**オプション** コミットログの履歴の制限。デフォルトは `70` です。
+
+> [!NOTE]
+>
+> - 📝 OpenAI API の仕様で、1回のリクエストで使用可能なトークン数に制限があるため、コミットログの履歴の数を制限することで、リクエストの失敗を防ぐことができます。
 
 ## 貢献方法
 
