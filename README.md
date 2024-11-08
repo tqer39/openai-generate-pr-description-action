@@ -47,6 +47,10 @@ jobs:
 
 **Required** OpenAI API key. Specify `${{ secrets.OPENAI_API_KEY }}`.
 
+> [!NOTE]
+>
+> - 📝 The default model is `gpt-3.5-turbo` and can be used for free in the OpenAI API specification. If you use another model, you may incur charges for the OpenAI API.
+
 ### `commit-log-history-limit`
 
 **Optional** Limit of commit log history. Default is `70`.
