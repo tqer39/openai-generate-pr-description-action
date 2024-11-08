@@ -34,7 +34,7 @@ jobs:
       - uses: tqer39/openai-generate-pr-description@v1.0.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          open-api-key: ${{ secrets.OPENAI_API_KEY }}
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
 ```
 
 ## Inputs
@@ -43,7 +43,7 @@ jobs:
 
 **必須** GitHub トークン。`${{ secrets.GITHUB_TOKEN }}` を指定します。
 
-### `open-api-key`
+### `openai-api-key`
 
 **必須** OpenAI API キー。`${{ secrets.OPENAI_API_KEY }}` を指定します。
 

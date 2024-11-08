@@ -34,7 +34,7 @@ jobs:
       - uses: tqer39/openai-generate-pr-description@v1.0.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          open-api-key: ${{ secrets.OPENAI_API_KEY }}
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
 ```
 
 ## Inputs
@@ -43,7 +43,7 @@ jobs:
 
 **Required** GitHub token. Specify `${{ secrets.GITHUB_TOKEN }}`.
 
-### `open-api-key`
+### `openai-api-key`
 
 **Required** OpenAI API key. Specify `${{ secrets.OPENAI_API_KEY }}`.
 
