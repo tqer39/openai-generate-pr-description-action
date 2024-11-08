@@ -47,6 +47,10 @@ jobs:
 
 **Required** OpenAI API key. Specify `${{ secrets.OPENAI_API_KEY }}`.
 
+### `openai-model`
+
+**Optional** OpenAI model to use. Default is `gpt-3.5-turbo`.
+
 ## Contribution
 
 If you find any issues or have improvements, please create an Issue or submit a Pull Request.
