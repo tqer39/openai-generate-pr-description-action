@@ -7,6 +7,10 @@ on:
       - main
   pull_request:
 
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   pre-commit:
     name: pre-commit
