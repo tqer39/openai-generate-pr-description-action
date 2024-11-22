@@ -64,10 +64,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "openai", specifier = "==1.54.4" }]
+requires-dist = [{ name = "openai", specifier = "==1.55.0" }]
 
 [package.metadata.requires-dev]
-dev = [{ name = "openai", specifier = "==1.54.4" }]
+dev = [{ name = "openai", specifier = "==1.55.0" }]
 
 [[package]]
 name = "h11"
@@ -138,7 +138,7 @@ wheels = [
 
 [[package]]
 name = "openai"
-version = "1.54.4"
+version = "1.55.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -150,9 +150,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7e/95/83845be5ddd46ce0a35fd602a3366ec2d7fd6b2be6fb760ca553e2488ea1/openai-1.54.4.tar.gz", hash = "sha256:50f3656e45401c54e973fa05dc29f3f0b0d19348d685b2f7ddb4d92bf7b1b6bf", size = 314159 }
+sdist = { url = "https://files.pythonhosted.org/packages/f8/7b/b1a3b6fa17dc523c603121dd23615bcd895a9fc3ab23be92307b9347bc50/openai-1.55.0.tar.gz", hash = "sha256:6c0975ac8540fe639d12b4ff5a8e0bf1424c844c4a4251148f59f06c4b2bd5db", size = 313963 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c7/d8/3e4cf8a5f544bef575d3502fedd81a15e317f591022de940647bdd0cc017/openai-1.54.4-py3-none-any.whl", hash = "sha256:0d95cef99346bf9b6d7fbf57faf61a673924c3e34fa8af84c9ffe04660673a7e", size = 389581 },
+    { url = "https://files.pythonhosted.org/packages/81/b2/9d8939c9ef73e6a2d5cb3366ef3fabd728a8de4729210d9af785c0edc6ec/openai-1.55.0-py3-none-any.whl", hash = "sha256:446e08918f8dd70d8723274be860404c8c7cc46b91b93bbc0ef051f57eb503c1", size = 389528 },
 ]
 
 [[package]]
